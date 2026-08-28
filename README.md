@@ -4,7 +4,7 @@ Oria Nutrition is a **fictional portfolio case study** exploring a nutrition and
 
 ## Status
 
-This repository is being rebuilt through small, reviewable pull requests. The current bootstrap intentionally contains only a sanitized application shell and neutral placeholder content.
+This repository is being rebuilt through small, reviewable pull requests. The current foundation contains a sanitized application shell plus repository-wide engineering quality gates; domain content and feature depth are introduced in focused follow-up PRs.
 
 ## Privacy and provenance
 
@@ -15,18 +15,22 @@ This repository is being rebuilt through small, reviewable pull requests. The cu
 
 ## Stack
 
-React 19 · TypeScript · Vite 8 · Tailwind CSS 4 · React Router · PWA
+React 19 · TypeScript · Vite 8 · Tailwind CSS 4 · React Router · PWA · Vitest · Testing Library
 
 ## Commands
 
 ```bash
-npm install
+npm ci
 npm run dev
-npm run typecheck
-npm run lint
-npm run build
+npm run quality
 ```
+
+Useful focused commands remain available through `npm run lint`, `npm run typecheck`, `npm run test:run`, and `npm run build`.
+
+## Engineering contract
+
+Every pull request uses the same strict TypeScript baseline, deterministic dependency install and quality command. The complete contract is documented in [`docs/engineering/quality-gates.md`](docs/engineering/quality-gates.md).
 
 ## Delivery approach
 
-The project is intentionally developed in focused pull requests: sanitized bootstrap, engineering quality gates, fictional domain/content, feature hardening, accessibility, performance and portfolio packaging.
+The project is intentionally developed in focused pull requests: sanitized bootstrap, engineering quality gates, fictional domain/content, feature hardening, accessibility, performance and portfolio packaging. Each PR must explain how it builds on the existing system and prepares the next stages rather than behaving as an isolated fragment.
