@@ -1,3 +1,0 @@
-# Portfolio case study under active development.
-User-agent: *
-Disallow: /
