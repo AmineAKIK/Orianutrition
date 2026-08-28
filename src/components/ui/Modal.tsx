@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 
 const focusableSelector = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -10,6 +11,8 @@ export function Modal({ open, title, onClose, children }: { open: boolean; title
   useEffect(() => {
     if (!open) return
     openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
     const dialog = dialogRef.current
     const first = dialog?.querySelector<HTMLElement>(focusableSelector)
     first?.focus()
@@ -37,19 +40,21 @@ export function Modal({ open, title, onClose, children }: { open: boolean; title
     document.addEventListener('keydown', onKeyDown)
     return () => {
       document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = previousOverflow
       openerRef.current?.focus()
     }
   }, [open, onClose])
 
   if (!open) return null
 
-  return <div className="fixed inset-0 z-50 grid place-items-center bg-forest-dark/70 p-4" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}>
-    <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="oria-dialog-title" className="w-full max-w-lg border border-sage bg-paper p-6 shadow-xl">
-      <div className="flex items-start justify-between gap-6">
-        <h2 id="oria-dialog-title" className="text-2xl">{title}</h2>
-        <button type="button" onClick={onClose} aria-label="Fermer" className="grid size-11 shrink-0 place-items-center border border-sage text-forest hover:bg-sage-light"><X size={18}/></button>
+  return createPortal(<div className="fixed inset-0 z-[90] flex items-end justify-center sm:items-center">
+    <button type="button" aria-label="Fermer la fenêtre" onClick={onClose} className="absolute inset-0 bg-ink/50 backdrop-blur-[1px]"/>
+    <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="oria-dialog-title" tabIndex={-1} className="relative z-10 max-h-[92vh] w-full overflow-y-auto bg-paper shadow-2xl outline-none animate-[modal-in_260ms_ease-out] sm:max-w-lg">
+      <div className="sticky top-0 flex items-center justify-between border-b border-sage bg-paper px-6 py-5 sm:px-8 sm:py-6">
+        <h2 id="oria-dialog-title" className="text-xl text-forest-dark">{title}</h2>
+        <button type="button" onClick={onClose} aria-label="Fermer la fenêtre" className="-mr-2 flex min-h-11 min-w-11 items-center justify-center text-muted transition-colors hover:text-forest"><X size={20} aria-hidden="true"/></button>
       </div>
-      <div className="mt-6">{children}</div>
+      <div className="px-6 py-7 sm:px-10 sm:py-8">{children}</div>
     </div>
-  </div>
+  </div>, document.body)
 }

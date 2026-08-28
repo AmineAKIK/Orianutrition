@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Download } from 'lucide-react'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -13,9 +14,7 @@ export function PWAInstallButton() {
       event.preventDefault()
       setInstallEvent(event as BeforeInstallPromptEvent)
     }
-    function handleInstalled() {
-      setInstallEvent(null)
-    }
+    function handleInstalled() { setInstallEvent(null) }
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
     window.addEventListener('appinstalled', handleInstalled)
     return () => {
@@ -34,5 +33,5 @@ export function PWAInstallButton() {
     setInstallEvent(null)
   }
 
-  return <button type="button" onClick={install} className="mt-5 min-h-11 border border-sage/60 px-4 text-sm text-sage hover:border-sage hover:text-paper">Installer Oria</button>
+  return <button type="button" onClick={install} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-forest-soft transition-colors hover:text-forest-dark"><Download size={16} aria-hidden="true"/>Installer Oria</button>
 }
