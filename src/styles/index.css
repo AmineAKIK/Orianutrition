@@ -1,0 +1,22 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/fraunces/400.css';
+@import '@fontsource/fraunces/400-italic.css';
+@import 'tailwindcss';
+
+@theme inline {
+  --color-forest:#294a35; --color-forest-dark:#1c3325; --color-forest-soft:#42634a;
+  --color-cream:#f5f0e6; --color-paper:#fbf9f4; --color-sage:#dde6da; --color-sage-light:#edf2eb;
+  --color-gold-muted:#806d3f; --color-ink:#20251f; --color-muted:#616861;
+  --font-serif:'Fraunces',Georgia,serif; --font-sans:'Inter',system-ui,sans-serif;
+}
+@layer base {
+  *{border-color:var(--color-sage)} html{scroll-behavior:smooth} body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-sans)}
+  h1,h2,h3,h4{font-family:var(--font-serif);color:var(--color-forest-dark);letter-spacing:-.01em} :focus-visible{outline:2px solid var(--color-gold-muted);outline-offset:3px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+}
+@layer components {
+  .container-editorial{max-width:1320px;margin-inline:auto;padding-inline:1.5rem}.section-pad{padding-block:56px}.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--color-gold-muted)}
+  @media(min-width:768px){.container-editorial{padding-inline:2.5rem}} @media(min-width:1024px){.section-pad{padding-block:112px}}
+}
