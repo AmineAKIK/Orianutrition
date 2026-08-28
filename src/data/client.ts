@@ -4,7 +4,7 @@ export interface ClientDashboardData {
   nextAppointment: { label: string; date: string; time: string; mode: string }
   weeklyFocus: { label: string; value: string; progress: number }[]
   goals: string[]
-  documents: { label: string; type: string }[]
+  documents: { label: string; type: string; summary: string }[]
   note: string
 }
 
@@ -23,10 +23,10 @@ export const clientDashboard: ClientDashboardData = {
     'Tester une seule option de collation et noter le niveau de faim avant/après',
   ],
   documents: [
-    { label: 'Repères — semaine de nuit', type: 'PDF' },
-    { label: 'Journal d’observation simplifié', type: 'PDF' },
-    { label: 'Checklist retour de poste', type: 'PDF' },
-    { label: 'Idées de repas transportables', type: 'PDF' },
+    { label: 'Repères — semaine de nuit', type: 'PDF', summary: 'Une fiche synthétique qui regroupe les repères de repas, de pause et de retour au calme utilisés pendant une séquence de nuit.' },
+    { label: 'Journal d’observation simplifié', type: 'PDF', summary: 'Un support court pour noter faim, énergie et récupération sans transformer le suivi en comptage permanent.' },
+    { label: 'Checklist retour de poste', type: 'PDF', summary: 'Une séquence en quelques étapes pour réduire les décisions au retour et préparer plus facilement la fenêtre de repos.' },
+    { label: 'Idées de repas transportables', type: 'PDF', summary: 'Des combinaisons modulaires faciles à préparer et transporter quand les possibilités de restauration sont limitées.' },
   ],
   note: 'Cette semaine, garde surtout les deux repères qui restent faciles à tenir quand le planning bouge. Le reste pourra être ajusté au prochain point.',
 }
