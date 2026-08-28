@@ -1,0 +1,3 @@
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
+export function Accordion({items}:{items:{question:string;answer:string}[]}){const [open,setOpen]=useState<number|null>(0);return <div className="divide-y divide-sage border-y border-sage">{items.map((item,i)=><div key={item.question}><button className="w-full flex items-center justify-between gap-4 py-5 text-left font-medium" aria-expanded={open===i} onClick={()=>setOpen(open===i?null:i)}>{item.question}<ChevronDown size={18}/></button>{open===i&&<p className="pb-5 max-w-3xl text-muted leading-relaxed">{item.answer}</p>}</div>)}</div>}
