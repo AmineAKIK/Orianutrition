@@ -1,0 +1,29 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/fraunces/400.css';
+@import '@fontsource/fraunces/400-italic.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+  --color-paper: #fbf9f4;
+  --color-cream: #f5f0e6;
+  --color-sage-light: #e7ebe2;
+  --color-sage: #b9c4b4;
+  --color-forest: #365b43;
+  --color-forest-dark: #203b2a;
+  --color-muted: #5f695f;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { font-family: var(--font-sans); background: var(--color-paper); }
+  body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--color-paper); }
+  a, button { outline-color: var(--color-forest); outline-offset: 3px; }
+}
+
+@layer components {
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.16em] text-forest; }
+}
