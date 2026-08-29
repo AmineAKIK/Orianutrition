@@ -1,2 +1,10 @@
-import { Hero } from '../components/sections/Hero'; import { SituationsSection } from '../components/sections/SituationsSection'; import { PractitionerSection } from '../components/sections/PractitionerSection'; import { ServicesPreview } from '../components/sections/ServicesPreview'; import { SignatureBlock } from '../components/sections/SignatureBlock'; import { SleepTeaser } from '../components/sections/SleepTeaser'; import { TestimonialsSection } from '../components/sections/TestimonialsSection'; import { RecipesPreview } from '../components/sections/RecipesPreview'; import { BlogPreview } from '../components/sections/BlogPreview'; import { ClientSpacePreview } from '../components/sections/ClientSpacePreview'; import { FinalCta } from '../components/sections/FinalCta'
-export function HomePage(){return <><Hero/><SituationsSection/><PractitionerSection/><ServicesPreview/><SignatureBlock/><SleepTeaser/><TestimonialsSection/><RecipesPreview/><BlogPreview/><ClientSpacePreview/><FinalCta/></>}
+import { Hero } from '../components/sections/Hero'
+import { SituationsSection } from '../components/sections/SituationsSection'
+import { PractitionerSection } from '../components/sections/PractitionerSection'
+import { ServicesPreview } from '../components/sections/ServicesPreview'
+import { SleepTeaser } from '../components/sections/SleepTeaser'
+import { RecipesPreview } from '../components/sections/RecipesPreview'
+import { BlogPreview } from '../components/sections/BlogPreview'
+import { FinalCta } from '../components/sections/FinalCta'
+
+export function HomePage(){return <><Hero/><SituationsSection/><PractitionerSection/><ServicesPreview/><SleepTeaser/><RecipesPreview/><BlogPreview/><FinalCta/></>}
