@@ -4,14 +4,14 @@ import { LinkButton } from '../components/ui/Button'
 import { brand } from '../config/site'
 import { approach, signature } from '../data/site'
 import { usePageMeta } from '../hooks/usePageMeta'
-import portrait from '../assets/practitioner/elise-marceau.svg'
+import portrait from '../assets/practitioner/elise-marceau-approche.png'
 
 export function AboutPage() {
   usePageMeta('Mon approche')
   return <>
     <section className="section-pad bg-paper"><Container><div className="grid lg:grid-cols-[1.15fr_.85fr] gap-12 lg:gap-16 items-center">
       <div className="order-2 lg:order-1"><p className="eyebrow mb-5">Mon approche</p><h1 className="text-3xl sm:text-4xl md:text-5xl leading-[1.15] mb-6">{approach.intro}</h1><p className="inline-block bg-forest-soft px-4 py-2 text-sm font-medium text-sage-light">{brand.role}</p></div>
-      <div className="order-1 lg:order-2"><div className="aspect-[4/5] max-w-sm mx-auto overflow-hidden bg-sage-light border border-sage"><img src={portrait} alt={`Portrait illustré de ${brand.practitioner}`} className="h-full w-full object-cover" /></div><p className="mt-3 text-center text-sm italic text-muted">{approach.photoBadge}</p></div>
+      <div className="order-1 lg:order-2"><div className="aspect-[4/5] max-w-sm mx-auto overflow-hidden bg-sage-light border border-sage"><img src={portrait} alt={`Portrait de ${brand.practitioner}`} className="h-full w-full object-cover" width={1229} height={1536} decoding="async" /></div><p className="mt-3 text-center text-sm italic text-muted">{approach.photoBadge}</p></div>
     </div></Container></section>
     <section className="section-pad bg-sage-light/50"><Container className="max-w-3xl"><div className="space-y-6">{approach.body.map((paragraph) => <p key={paragraph} className="font-serif text-xl md:text-2xl text-forest-dark leading-snug">{paragraph}</p>)}</div></Container></section>
     <section className="section-pad bg-paper"><Container><p className="eyebrow mb-5">Ce qui guide l'accompagnement</p><div className="grid md:grid-cols-2 gap-x-16">{approach.principles.map(([title, subtitle], index) => <div key={title} className="grid grid-cols-[3rem_1fr] gap-4 py-7 border-b border-sage"><span className="font-serif italic text-xl text-gold-muted">{String(index + 1).padStart(2, '0')}</span><div><h2 className="text-xl mb-1">{title}</h2><p className="text-muted">{subtitle}</p></div></div>)}</div></Container></section>

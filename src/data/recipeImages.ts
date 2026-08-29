@@ -1,9 +1,9 @@
-import bowl from '../assets/recipes/bowl-quinoa-courge.svg'
-import porridge from '../assets/recipes/porridge-pomme-amande.svg'
-import wrap from '../assets/recipes/wrap-poulet-crudites.svg'
-import lentils from '../assets/recipes/salade-lentilles.svg'
-import toast from '../assets/recipes/tartine-houmous-oeuf.svg'
-import yoghurt from '../assets/recipes/yaourt-poire-noix.svg'
+import bowl from '../assets/recipes/bowl-quinoa-courge.png'
+import porridge from '../assets/recipes/porridge-pomme-amande.png'
+import wrap from '../assets/recipes/wrap-poulet-crudites.png'
+import lentils from '../assets/recipes/salade-lentilles.png'
+import toast from '../assets/recipes/tartine-houmous-oeuf.png'
+import yoghurt from '../assets/recipes/yaourt-poire-noix.png'
 
 export const recipeImages: Record<string, string> = {
   'bowl-quinoa-courge-pois-chiches': bowl,

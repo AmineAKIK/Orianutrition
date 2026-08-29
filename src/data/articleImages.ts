@@ -1,9 +1,9 @@
-import nightMeals from '../assets/articles/repas-nuit.svg'
-import transition from '../assets/articles/transition.svg'
-import sleep from '../assets/articles/retour-poste.svg'
-import snack from '../assets/articles/collations.svg'
-import prep from '../assets/articles/cuisine-modulaire.svg'
-import energy from '../assets/articles/energie.svg'
+import nightMeals from '../assets/articles/repas-nuit.png'
+import transition from '../assets/articles/transition.png'
+import sleep from '../assets/articles/retour-poste.png'
+import snack from '../assets/articles/collations.png'
+import prep from '../assets/articles/cuisine-modulaire.png'
+import energy from '../assets/articles/energie.png'
 
 export const articleImages: Record<string, string> = {
   'organiser-repas-semaine-de-nuit': nightMeals,
