@@ -34,8 +34,8 @@ export function Header() {
     }
   }, [open])
 
-  return <header className={`sticky top-0 z-50 bg-paper/95 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? 'shadow-[0_1px_0_0_rgba(41,74,53,.12)]' : ''}`}>
-    <div className="container-editorial flex h-[72px] items-center justify-between lg:h-20">
+  return <header className={`sticky top-0 z-50 bg-paper/97 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? 'shadow-[0_1px_0_0_rgba(41,74,53,.12)]' : ''}`}>
+    <div className="container-editorial flex h-16 items-center justify-between lg:h-20">
       <Logo/>
       <nav className="hidden items-center gap-9 lg:flex" aria-label="Navigation principale">
         {mainNav.map(link => <NavLink key={link.path} to={link.path} className={({isActive}) => `text-sm font-medium transition-colors ${isActive ? 'text-forest-dark' : 'text-muted hover:text-forest-dark'}`}>
@@ -47,11 +47,11 @@ export function Header() {
         <Link to="/espace-client" className="text-sm font-medium text-forest-soft transition-colors hover:text-forest-dark">Espace client</Link>
         <Link to="/contact" className="inline-flex min-h-11 items-center justify-center bg-forest px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-forest-dark">Prendre RDV</Link>
       </div>
-      <button ref={menuButtonRef} type="button" className="flex min-h-11 min-w-11 items-center justify-center text-forest-dark lg:hidden" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} onClick={() => setOpen(v => !v)}>{open ? <X size={24} aria-hidden="true"/> : <Menu size={24} aria-hidden="true"/>}</button>
+      <button ref={menuButtonRef} type="button" className="flex size-11 items-center justify-center text-forest-dark lg:hidden" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} onClick={() => setOpen(v => !v)}>{open ? <X size={24} aria-hidden="true"/> : <Menu size={24} aria-hidden="true"/>}</button>
     </div>
-    {open && <div id="mobile-nav" className="border-t border-sage bg-paper lg:hidden"><nav className="container-editorial flex flex-col py-4" aria-label="Navigation mobile">
-      {mainNav.map(link => <NavLink key={link.path} to={link.path} onClick={() => setOpen(false)} className={({isActive}) => `flex min-h-11 items-center border-b border-sage-light py-3.5 text-base font-medium ${isActive ? 'text-forest-dark' : 'text-muted'}`}>{({isActive}) => <span aria-current={isActive ? 'page' : undefined}>{link.label}</span>}</NavLink>)}
-      <Link to="/espace-client" onClick={() => setOpen(false)} className="flex min-h-11 items-center py-3.5 text-base font-medium text-muted">Espace client</Link>
+    {open && <div id="mobile-nav" className="border-t border-sage bg-paper lg:hidden"><nav className="container-editorial flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto py-3" aria-label="Navigation mobile">
+      {mainNav.map(link => <NavLink key={link.path} to={link.path} onClick={() => setOpen(false)} className={({isActive}) => `flex min-h-11 items-center border-b border-sage-light py-3 text-base font-medium ${isActive ? 'text-forest-dark' : 'text-muted'}`}>{({isActive}) => <span aria-current={isActive ? 'page' : undefined}>{link.label}</span>}</NavLink>)}
+      <Link to="/espace-client" onClick={() => setOpen(false)} className="flex min-h-11 items-center py-3 text-base font-medium text-muted">Espace client</Link>
       <Link to="/contact" onClick={() => setOpen(false)} className="mt-3 inline-flex min-h-11 items-center justify-center bg-forest px-5 py-3 text-sm font-medium text-paper">Prendre RDV</Link>
     </nav></div>}
   </header>
