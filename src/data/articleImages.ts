@@ -13,3 +13,12 @@ export const articleImages: Record<string, string> = {
   'planifier-cuisine-horaires-variables': prep,
   'observer-energie-sans-tout-mesurer': energy,
 }
+
+export const articleImagePositions: Record<string, string> = {
+  'organiser-repas-semaine-de-nuit': '50% 50%',
+  'transition-jour-nuit-reperes': '50% 42%',
+  'routine-retour-de-poste': '50% 34%',
+  'preparer-collations-poste-long': '50% 45%',
+  'planifier-cuisine-horaires-variables': '50% 50%',
+  'observer-energie-sans-tout-mesurer': '50% 36%',
+}
