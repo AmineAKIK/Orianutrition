@@ -74,10 +74,10 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 bg-paper/97 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_0_0_rgba(41,74,53,.12)]" : ""}`}
     >
-      <div className="container-editorial flex h-16 items-center justify-between lg:h-20">
+      <div className="container-editorial flex h-16 items-center justify-between xl:h-20">
         <Logo />
         <nav
-          className="hidden items-center gap-9 lg:flex"
+          className="hidden items-center gap-7 xl:flex 2xl:gap-9"
           aria-label="Navigation principale"
         >
           {mainNav.map((link) => (
@@ -85,7 +85,7 @@ export function Header() {
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${isActive ? "text-forest-dark" : "text-muted hover:text-forest-dark"}`
+                `whitespace-nowrap text-sm font-medium transition-colors ${isActive ? "text-forest-dark" : "text-muted hover:text-forest-dark"}`
               }
             >
               {({ isActive }) => (
@@ -105,17 +105,17 @@ export function Header() {
             </NavLink>
           ))}
         </nav>
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-4 xl:flex 2xl:gap-6">
           <PWAInstallButton />
           <Link
             to="/espace-client"
-            className="text-sm font-medium text-forest-soft transition-colors hover:text-forest-dark"
+            className="whitespace-nowrap text-sm font-medium text-forest-soft transition-colors hover:text-forest-dark"
           >
             Espace client
           </Link>
           <Link
             to="/contact"
-            className="inline-flex min-h-11 items-center justify-center bg-forest px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-forest-dark"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center whitespace-nowrap bg-forest px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-forest-dark"
           >
             Prendre RDV
           </Link>
@@ -123,7 +123,7 @@ export function Header() {
         <button
           ref={menuButtonRef}
           type="button"
-          className="flex size-11 items-center justify-center text-forest-dark lg:hidden"
+          className="flex size-11 shrink-0 items-center justify-center text-forest-dark xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
@@ -140,7 +140,7 @@ export function Header() {
         <div
           ref={mobileMenuRef}
           id="mobile-nav"
-          className="border-t border-sage bg-paper lg:hidden"
+          className="border-t border-sage bg-paper xl:hidden"
         >
           <nav
             className="container-editorial flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto py-3"
