@@ -22,6 +22,13 @@ export default defineConfig({
         start_url: '/orianutrition/',
         scope: '/orianutrition/',
         categories: ['health', 'lifestyle'],
+        related_applications: [
+          {
+            platform: 'webapp',
+            url: '/orianutrition/manifest.webmanifest',
+            id: '/orianutrition/',
+          },
+        ],
         icons: [
           {
             src: '/orianutrition/favicon.svg',
