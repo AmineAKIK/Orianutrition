@@ -20,7 +20,7 @@ export function BlogPage() {
   return (
     <section className="section-pad bg-paper">
       <Container>
-        <SectionHeading eyebrow="Conseils" title="Des repères pour ton bien-être au quotidien" body="Horaires atypiques, sommeil, repas et organisation : des articles pour comprendre et avancer sans raccourci." />
+        <SectionHeading level={1} eyebrow="Conseils" title="Des repères pour ton bien-être au quotidien" body="Horaires atypiques, sommeil, repas et organisation : des articles pour comprendre et avancer sans raccourci." />
         <div className="my-8 grid grid-cols-2 gap-2 sm:my-10 sm:flex sm:flex-wrap" role="group" aria-label="Filtrer les articles par catégorie">
           {categories.map((category) => <button key={category} type="button" onClick={() => setActive(category)} aria-pressed={active === category} className={`min-h-11 w-full border px-3 py-2 text-sm font-medium sm:w-auto sm:px-4 ${active === category ? 'border-forest bg-forest text-paper' : 'border-sage text-forest-soft'}`}>{category}</button>)}
         </div>
