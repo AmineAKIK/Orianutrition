@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { VitePWA } from "vite-plugin-pwa";
 import {
-  publicAppId,
   publicBasePath,
   publicManifestUrl,
   publicSiteUrl,
@@ -25,7 +24,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        id: publicAppId,
+        id: publicSiteUrl,
         name: "Oria Nutrition",
         short_name: "Oria",
         description: "Nutrition, sommeil et rythmes atypiques",
@@ -40,7 +39,7 @@ export default defineConfig({
           {
             platform: "webapp",
             url: publicManifestUrl,
-            id: publicAppId,
+            id: publicSiteUrl,
           },
         ],
         icons: [
