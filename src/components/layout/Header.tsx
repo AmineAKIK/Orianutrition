@@ -79,6 +79,7 @@ export function Header() {
     </div>
     {open && <div ref={mobileMenuRef} id="mobile-nav" className="border-t border-sage bg-paper lg:hidden"><nav className="container-editorial flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto py-3" aria-label="Navigation mobile">
       {mainNav.map(link => <NavLink key={link.path} to={link.path} onClick={() => setOpen(false)} className={({isActive}) => `flex min-h-11 items-center border-b border-sage-light py-3 text-base font-medium ${isActive ? 'text-forest-dark' : 'text-muted'}`}>{({isActive}) => <span aria-current={isActive ? 'page' : undefined}>{link.label}</span>}</NavLink>)}
+      <div className="border-b border-sage-light py-1"><PWAInstallButton/></div>
       <Link to="/espace-client" onClick={() => setOpen(false)} className="flex min-h-11 items-center py-3 text-base font-medium text-muted">Espace client</Link>
       <Link to="/contact" onClick={() => setOpen(false)} className="mt-3 inline-flex min-h-11 items-center justify-center bg-forest px-5 py-3 text-sm font-medium text-paper">Prendre RDV</Link>
     </nav></div>}
