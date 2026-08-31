@@ -1,13 +1,13 @@
-import type { MouseEvent } from 'react'
+import type { MouseEvent } from "react";
 
 export function SkipLink() {
   function focusMain(event: MouseEvent<HTMLAnchorElement>) {
-    event.preventDefault()
-    const main = document.getElementById('main-content')
-    if (!main) return
+    event.preventDefault();
+    const main = document.getElementById("main-content");
+    if (!main) return;
 
-    main.focus({ preventScroll: true })
-    main.scrollIntoView({ block: 'start', behavior: 'auto' })
+    main.focus({ preventScroll: true });
+    main.scrollIntoView({ block: "start", behavior: "auto" });
   }
 
   return (
@@ -18,5 +18,5 @@ export function SkipLink() {
     >
       Aller au contenu
     </a>
-  )
+  );
 }
