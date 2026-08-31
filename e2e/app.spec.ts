@@ -247,7 +247,10 @@ test("recipe detail keeps preparation below the media and ingredients", async ({
   if (!imageBox || !ingredientsBox || !preparationBox) return;
 
   expect(preparationBox.y).toBeGreaterThanOrEqual(
-    Math.max(imageBox.y + imageBox.height, ingredientsBox.y + ingredientsBox.height),
+    Math.max(
+      imageBox.y + imageBox.height,
+      ingredientsBox.y + ingredientsBox.height,
+    ),
   );
 });
 
