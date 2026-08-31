@@ -12,11 +12,7 @@ export function Layout() {
       <RouteFocus />
       <RouteMetadata />
       <Header />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex-1 outline-none"
-      >
+      <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
         <Outlet />
       </main>
       <Footer />

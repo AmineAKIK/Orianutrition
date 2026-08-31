@@ -163,9 +163,11 @@ test("short pages keep the footer at the viewport edge", async ({
   await page.setViewportSize({ width: 1440, height: 1100 });
   await page.goto("#/espace-client");
 
-  const footerBottom = await page.locator("footer").evaluate((footer) =>
-    Math.round(footer.getBoundingClientRect().bottom + window.scrollY),
-  );
+  const footerBottom = await page
+    .locator("footer")
+    .evaluate((footer) =>
+      Math.round(footer.getBoundingClientRect().bottom + window.scrollY),
+    );
   const documentHeight = await page.evaluate(
     () => document.documentElement.scrollHeight,
   );
