@@ -1,9 +1,9 @@
-import nightMeals from "../assets/articles/repas-nuit.png";
-import transition from "../assets/articles/transition.png";
-import sleep from "../assets/articles/retour-poste.png";
-import snack from "../assets/articles/collations.png";
-import prep from "../assets/articles/cuisine-modulaire.png";
-import energy from "../assets/articles/energie.png";
+import nightMeals from "../assets/articles/repas-nuit.webp";
+import transition from "../assets/articles/transition.webp";
+import sleep from "../assets/articles/retour-poste.webp";
+import snack from "../assets/articles/collations.webp";
+import prep from "../assets/articles/cuisine-modulaire.webp";
+import energy from "../assets/articles/energie.webp";
 
 export const articleImages: Record<string, string> = {
   "organiser-repas-semaine-de-nuit": nightMeals,
