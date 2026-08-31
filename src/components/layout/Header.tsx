@@ -5,10 +5,13 @@ import { Logo } from '../navigation/Logo'
 import { mainNav } from '../../data/site'
 import { PWAInstallButton } from '../pwa/PWAInstallButton'
 
+const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 export function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -19,14 +22,39 @@ export function Header() {
 
   useEffect(() => {
     if (!open) return
+
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+
+    const firstMenuControl = mobileMenuRef.current?.querySelector<HTMLElement>(focusableSelector)
+    firstMenuControl?.focus()
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         setOpen(false)
         menuButtonRef.current?.focus()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const menuControls = mobileMenuRef.current
+        ? Array.from(mobileMenuRef.current.querySelectorAll<HTMLElement>(focusableSelector))
+        : []
+      const focusableElements = [menuButtonRef.current, ...menuControls].filter((element): element is HTMLElement => Boolean(element))
+      if (focusableElements.length === 0) return
+
+      const first = focusableElements[0]
+      const last = focusableElements[focusableElements.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
       }
     }
+
     document.addEventListener('keydown', onKeyDown)
     return () => {
       document.body.style.overflow = previousOverflow
@@ -49,7 +77,7 @@ export function Header() {
       </div>
       <button ref={menuButtonRef} type="button" className="flex size-11 items-center justify-center text-forest-dark lg:hidden" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} onClick={() => setOpen(v => !v)}>{open ? <X size={24} aria-hidden="true"/> : <Menu size={24} aria-hidden="true"/>}</button>
     </div>
-    {open && <div id="mobile-nav" className="border-t border-sage bg-paper lg:hidden"><nav className="container-editorial flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto py-3" aria-label="Navigation mobile">
+    {open && <div ref={mobileMenuRef} id="mobile-nav" className="border-t border-sage bg-paper lg:hidden"><nav className="container-editorial flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto py-3" aria-label="Navigation mobile">
       {mainNav.map(link => <NavLink key={link.path} to={link.path} onClick={() => setOpen(false)} className={({isActive}) => `flex min-h-11 items-center border-b border-sage-light py-3 text-base font-medium ${isActive ? 'text-forest-dark' : 'text-muted'}`}>{({isActive}) => <span aria-current={isActive ? 'page' : undefined}>{link.label}</span>}</NavLink>)}
       <Link to="/espace-client" onClick={() => setOpen(false)} className="flex min-h-11 items-center py-3 text-base font-medium text-muted">Espace client</Link>
       <Link to="/contact" onClick={() => setOpen(false)} className="mt-3 inline-flex min-h-11 items-center justify-center bg-forest px-5 py-3 text-sm font-medium text-paper">Prendre RDV</Link>

@@ -25,8 +25,8 @@ interface CommonProps {
 
 type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ variant = 'primary', size = 'md', children, className = '', icon, ...props }, ref) {
-  return <button ref={ref} {...props} className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}>{children}{icon}</button>
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({ variant = 'primary', size = 'md', children, className = '', icon, type = 'button', ...props }, ref) {
+  return <button ref={ref} type={type} {...props} className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}>{children}{icon}</button>
 })
 
 type LinkButtonProps = CommonProps & AnchorHTMLAttributes<HTMLAnchorElement> & { to: string }
