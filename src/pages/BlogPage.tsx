@@ -6,10 +6,8 @@ import { SectionHeading } from '../components/ui/SectionHeading'
 import { ArticleCard } from '../components/cards/ArticleCard'
 import { articles } from '../data/articles'
 import { articleImages, articleImagePositions } from '../data/articleImages'
-import { usePageMeta } from '../hooks/usePageMeta'
 
 export function BlogPage() {
-  usePageMeta('Conseils')
   const [active, setActive] = useState('Toutes')
   const sorted = useMemo(() => [...articles].sort((a, b) => b.isoDate.localeCompare(a.isoDate)), [])
   const [featured, ...rest] = sorted
