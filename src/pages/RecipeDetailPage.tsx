@@ -63,7 +63,7 @@ export function RecipeDetailPage() {
       </div>
 
       <section
-        className="mt-12 border-t border-sage pt-8 sm:mt-14 sm:pt-10 lg:mt-16 lg:pt-12"
+        className="mt-10 sm:mt-12 lg:mt-14"
         aria-labelledby="recipe-preparation-title"
         data-testid="recipe-preparation"
       >
@@ -75,7 +75,7 @@ export function RecipeDetailPage() {
             Préparation
           </h2>
           <ol
-            className="mt-4 divide-y divide-sage border-y border-sage sm:mt-5"
+            className="mt-3 divide-y divide-sage border-y border-sage sm:mt-4"
             data-testid="recipe-steps"
           >
             {recipe.steps.map((step) => (
