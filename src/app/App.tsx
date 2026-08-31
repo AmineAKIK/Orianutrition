@@ -4,7 +4,9 @@ import { Layout } from "../components/layout/Layout";
 import { HomePage } from "../pages/HomePage";
 
 const AboutPage = lazy(() =>
-  import("../pages/AboutPage").then((module) => ({ default: module.AboutPage })),
+  import("../pages/AboutPage").then((module) => ({
+    default: module.AboutPage,
+  })),
 );
 const ServicesPage = lazy(() =>
   import("../pages/ServicesPage").then((module) => ({
@@ -12,7 +14,9 @@ const ServicesPage = lazy(() =>
   })),
 );
 const RecipesPage = lazy(() =>
-  import("../pages/RecipesPage").then((module) => ({ default: module.RecipesPage })),
+  import("../pages/RecipesPage").then((module) => ({
+    default: module.RecipesPage,
+  })),
 );
 const RecipeDetailPage = lazy(() =>
   import("../pages/RecipeDetailPage").then((module) => ({
@@ -23,10 +27,14 @@ const BlogPage = lazy(() =>
   import("../pages/BlogPage").then((module) => ({ default: module.BlogPage })),
 );
 const ArticlePage = lazy(() =>
-  import("../pages/ArticlePage").then((module) => ({ default: module.ArticlePage })),
+  import("../pages/ArticlePage").then((module) => ({
+    default: module.ArticlePage,
+  })),
 );
 const SleepPage = lazy(() =>
-  import("../pages/SleepPage").then((module) => ({ default: module.SleepPage })),
+  import("../pages/SleepPage").then((module) => ({
+    default: module.SleepPage,
+  })),
 );
 const ClientSpacePage = lazy(() =>
   import("../pages/ClientSpacePage").then((module) => ({
@@ -37,10 +45,14 @@ const FAQPage = lazy(() =>
   import("../pages/FAQPage").then((module) => ({ default: module.FAQPage })),
 );
 const ContactPage = lazy(() =>
-  import("../pages/ContactPage").then((module) => ({ default: module.ContactPage })),
+  import("../pages/ContactPage").then((module) => ({
+    default: module.ContactPage,
+  })),
 );
 const LegalPage = lazy(() =>
-  import("../pages/LegalPage").then((module) => ({ default: module.LegalPage })),
+  import("../pages/LegalPage").then((module) => ({
+    default: module.LegalPage,
+  })),
 );
 const NotFoundPage = lazy(() =>
   import("../pages/NotFoundPage").then((module) => ({
@@ -50,7 +62,10 @@ const NotFoundPage = lazy(() =>
 
 function RouteFallback() {
   return (
-    <div className="mx-auto min-h-[40vh] max-w-[1320px] px-5 py-16 sm:px-8" role="status">
+    <div
+      className="mx-auto min-h-[40vh] max-w-[1320px] px-5 py-16 sm:px-8"
+      role="status"
+    >
       <p className="text-sm text-muted">Chargement…</p>
     </div>
   );
