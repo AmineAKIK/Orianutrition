@@ -24,59 +24,71 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Comment choisir entre les trois formats ?",
         answer:
-          "Le bon point de départ dépend surtout de la fréquence à laquelle ton planning change, du sujet prioritaire et du niveau de soutien dont tu as besoin. Le quiz d’orientation peut t’aider à cadrer ce choix avant un premier échange.",
+          "L’appel découverte sert à clarifier le besoin. Un bilan unique peut suffire pour cadrer une situation précise ; les formats de suivi sont plus adaptés quand plusieurs cycles de travail doivent être observés et ajustés.",
       },
     ],
   },
   {
-    category: "Nutrition & quotidien",
+    category: "Rythmes atypiques",
     items: [
       {
-        question: "Est-ce qu’un suivi impose un plan alimentaire strict ?",
+        question:
+          "Est-ce uniquement pour les personnes qui travaillent de nuit ?",
         answer:
-          "Non. L’objectif est de construire des repères flexibles : composition des repas, options de dépannage, organisation des courses et préparation, selon tes contraintes réelles.",
+          "Non. Les accompagnements s’adressent aussi aux horaires alternants, très matinaux, fractionnés ou simplement variables lorsque l’organisation des repas et de la récupération devient difficile.",
+      },
+      {
+        question: "Dois-je manger à heures fixes ?",
+        answer:
+          "Pas nécessairement. Selon les rotations, il est souvent plus utile de travailler avec des repères relatifs au poste, au réveil et aux temps de repos qu’avec des heures identiques tous les jours.",
+      },
+      {
+        question: "Que se passe-t-il si mon planning change pendant le suivi ?",
+        answer:
+          "C’est prévu. Les rendez-vous servent aussi à tester si les repères restent utilisables lorsque le planning évolue, puis à les simplifier ou les déplacer si nécessaire.",
+      },
+    ],
+  },
+  {
+    category: "Nutrition & organisation",
+    items: [
+      {
+        question: "Est-ce que je recevrai un menu imposé ?",
+        answer:
+          "Non. Des exemples de repas et des ressources peuvent être proposés, mais l’objectif est de construire des solutions adaptables plutôt qu’un menu rigide à suivre au jour près.",
+      },
+      {
+        question: "Faut-il cuisiner tous ses repas à l’avance ?",
+        answer:
+          "Non. La préparation anticipée est un levier parmi d’autres. Elle peut se limiter à quelques bases ou à des options de secours pour les moments où cuisiner n’est pas réaliste.",
       },
       {
         question:
-          "Que se passe-t-il si mes horaires changent en cours de suivi ?",
+          "Les recettes du site sont-elles des prescriptions personnalisées ?",
         answer:
-          "C’est prévu. Les repères sont réévalués lorsque le rythme évolue afin de rester applicables lors des postes de jour, de nuit ou des rotations.",
-      },
-      {
-        question: "Le site remplace-t-il un avis médical ?",
-        answer:
-          "Non. Les contenus proposés sont informatifs et ne remplacent ni un diagnostic, ni un traitement, ni le suivi d’un professionnel de santé. En cas de symptôme, de pathologie ou de situation particulière, il faut consulter le professionnel compétent.",
+          "Non. Elles servent d’inspiration générale. Un accompagnement personnalisé tient compte du contexte individuel et ne se résume pas à reproduire les recettes du site.",
       },
     ],
   },
   {
-    category: "Sommeil & récupération",
+    category: "Cadre & santé",
     items: [
       {
-        question: "L’outil sommeil donne-t-il une durée idéale ?",
+        question: "Est-ce un suivi médical ?",
         answer:
-          "Non. Il additionne simplement les périodes de sommeil déclarées et affiche un repère de lecture. Il ne produit pas de diagnostic ni de recommandation médicale personnalisée.",
+          "Non. Oria propose un accompagnement de bien-être et d’organisation du quotidien. Il ne remplace ni diagnostic, ni traitement, ni suivi par un professionnel de santé.",
       },
       {
         question:
-          "Peut-on compter plusieurs périodes de sommeil dans une journée ?",
+          "Puis-je venir avec une pathologie ou un traitement en cours ?",
         answer:
-          "Oui. L’outil permet d’ajouter plusieurs périodes, y compris lorsqu’une période traverse minuit, afin de mieux refléter les rythmes fractionnés ou décalés.",
-      },
-    ],
-  },
-  {
-    category: "Pratique",
-    items: [
-      {
-        question: "Comment se déroule le premier contact ?",
-        answer:
-          "Le formulaire prépare un email dans ta propre application de messagerie. Tu gardes la main sur le contenu et l’envoi ; aucune donnée n’est transmise à un serveur par ce site de démonstration.",
+          "Le contexte peut être évoqué pour comprendre le quotidien, mais toute question médicale, adaptation thérapeutique ou prise en charge nutritionnelle liée à une pathologie relève des professionnels de santé compétents.",
       },
       {
-        question: "L’espace client est-il connecté à de vraies données ?",
+        question:
+          "Que faire si ma fatigue ou mes troubles du sommeil deviennent importants ?",
         answer:
-          "Non. Il s’agit d’une démonstration d’interface avec des données fictives, conçue pour illustrer l’expérience d’un espace de suivi sans manipuler de données personnelles réelles.",
+          "Une fatigue persistante, une somnolence dangereuse ou des troubles du sommeil marqués doivent être discutés avec un médecin. L’accompagnement Oria ne doit pas retarder cette démarche.",
       },
     ],
   },
