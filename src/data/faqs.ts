@@ -37,7 +37,8 @@ export const faqCategories: FAQCategory[] = [
           "Non. L’objectif est de construire des repères flexibles : composition des repas, options de dépannage, organisation des courses et préparation, selon tes contraintes réelles.",
       },
       {
-        question: "Que se passe-t-il si mes horaires changent en cours de suivi ?",
+        question:
+          "Que se passe-t-il si mes horaires changent en cours de suivi ?",
         answer:
           "C’est prévu. Les repères sont réévalués lorsque le rythme évolue afin de rester applicables lors des postes de jour, de nuit ou des rotations.",
       },
@@ -57,7 +58,8 @@ export const faqCategories: FAQCategory[] = [
           "Non. Il additionne simplement les périodes de sommeil déclarées et affiche un repère de lecture. Il ne produit pas de diagnostic ni de recommandation médicale personnalisée.",
       },
       {
-        question: "Peut-on compter plusieurs périodes de sommeil dans une journée ?",
+        question:
+          "Peut-on compter plusieurs périodes de sommeil dans une journée ?",
         answer:
           "Oui. L’outil permet d’ajouter plusieurs périodes, y compris lorsqu’une période traverse minuit, afin de mieux refléter les rythmes fractionnés ou décalés.",
       },
