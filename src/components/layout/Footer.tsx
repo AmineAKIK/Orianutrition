@@ -45,8 +45,8 @@ export function Footer() {
       </div>
       <div className="border-t border-sage/20">
         <p className="container-editorial py-5 text-xs leading-relaxed text-sage/80">
-          Projet de démonstration — marque, identité, coordonnées, prix et données
-          client fictifs. Aucune donnée réelle n’est traitée.
+          Projet de démonstration — marque, identité, coordonnées, prix et
+          données client fictifs. Aucune donnée réelle n’est traitée.
         </p>
       </div>
     </footer>
