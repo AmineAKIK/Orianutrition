@@ -22,6 +22,7 @@ const responsiveRoutes = [
   "#/mon-approche",
   "#/accompagnements",
   "#/recettes",
+  "#/recettes/bowl-quinoa-courge-pois-chiches",
   "#/conseils",
   "#/sommeil",
   "#/contact",
@@ -209,6 +210,26 @@ test("sleep result expands only the calculator column", async ({
 
   expect(finalHeights[0]).toBeGreaterThan(initialHeights[0]);
   expect(Math.abs(finalHeights[1] - initialHeights[1])).toBeLessThanOrEqual(1);
+});
+
+test("recipe detail uses a coherent editorial list system", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "chromium-desktop",
+    "The recipe editorial contract only needs one rendering engine.",
+  );
+
+  await page.goto("#/recettes/bowl-quinoa-courge-pois-chiches");
+
+  const ingredients = page.getByTestId("recipe-ingredients");
+  const steps = page.getByTestId("recipe-steps");
+
+  await expect(ingredients.locator("li")).toHaveCount(7);
+  await expect(ingredients).not.toContainText("—");
+  await expect(steps.locator("li")).toHaveCount(5);
+  await expect(steps.getByText("Étape 01")).toBeVisible();
+  await expect(steps.getByText("Étape 05")).toBeVisible();
 });
 
 test("orientation answers produce a tailored recommendation and can reset", async ({
