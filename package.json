@@ -16,8 +16,11 @@
     "typecheck": "tsc -b --pretty false",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "test:e2e": "playwright test",
-    "build": "tsc -b && vite build",
-    "quality": "npm run format:check && npm run lint && npm run dead-code && npm run typecheck && npm test && npm run build",
+    "bundle": "vite build",
+    "build": "tsc -b && npm run bundle",
+    "quality:static": "npm run format:check && npm run lint && npm run dead-code && npm run typecheck && npm test",
+    "quality": "npm run quality:static && npm run bundle",
+    "quality:ci": "npm run quality:static && npm run test:e2e && npm run bundle",
     "preview": "vite preview"
   },
   "dependencies": {
