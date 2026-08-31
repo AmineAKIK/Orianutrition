@@ -12,7 +12,7 @@ export function ServicesPage(){
   usePageMeta('Accompagnements')
   const[quizOpen,setQuizOpen]=useState(false)
   return <>
-    <section className="section-pad bg-paper"><Container><SectionHeading eyebrow="Accompagnements" title="Un accompagnement pensé pour ton emploi du temps, pas l'inverse" body="Plusieurs formats, du premier échange à un suivi plus régulier, pour avancer à ton rythme."/></Container></section>
+    <section className="section-pad bg-paper"><Container><SectionHeading level={1} eyebrow="Accompagnements" title="Un accompagnement pensé pour ton emploi du temps, pas l'inverse" body="Plusieurs formats, du premier échange à un suivi plus régulier, pour avancer à ton rythme."/></Container></section>
     <section className="bg-paper pb-14 sm:pb-16 lg:pb-24"><Container>
       <div className="mb-10 flex flex-col gap-5 border border-gold-muted/50 bg-cream/60 p-5 sm:mb-12 sm:p-7 lg:mb-14 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-8">
         <div className="flex items-start gap-3.5 sm:gap-4"><PhoneCall size={21} className="mt-1 shrink-0 text-gold-muted"/><div><h2 className="text-balance text-[1.55rem] leading-[1.12] sm:text-2xl">{discoveryCall.name} — {discoveryCall.price}</h2><p className="mt-2 max-w-xl text-pretty leading-relaxed text-muted">{discoveryCall.description}</p></div></div>
