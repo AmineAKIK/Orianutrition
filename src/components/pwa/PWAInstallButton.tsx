@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Download } from 'lucide-react'
+import { publicBasePath } from '../../config/release'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -15,8 +16,6 @@ interface RelatedApplication {
 type NavigatorWithInstalledApps = Navigator & {
   getInstalledRelatedApps?: () => Promise<RelatedApplication[]>
 }
-
-const PWA_ID = '/orianutrition/'
 
 export function PWAInstallButton() {
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null)
@@ -37,7 +36,7 @@ export function PWAInstallButton() {
 
     try {
       const relatedApps = await navigatorWithInstalledApps.getInstalledRelatedApps()
-      setIsInstalled(relatedApps.some(app => app.platform === 'webapp' && app.id === PWA_ID))
+      setIsInstalled(relatedApps.some(app => app.platform === 'webapp' && app.id === publicBasePath))
     } catch {
       setIsInstalled(false)
     }
