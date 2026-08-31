@@ -6,7 +6,7 @@ import {
   publicBasePath,
   publicManifestUrl,
   publicSiteUrl,
-} from "./src/config/release";
+} from "./src/config/release.ts";
 
 const publicReleaseHtml = {
   name: "public-release-html",
