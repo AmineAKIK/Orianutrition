@@ -176,6 +176,41 @@ test("short pages keep the footer at the viewport edge", async ({
   expect(footerBottom).toBe(documentHeight);
 });
 
+test("sleep result expands only the calculator column", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "chromium-desktop",
+    "The sleep column-height contract only needs one rendering engine.",
+  );
+
+  await page.setViewportSize({ width: 1024, height: 1000 });
+  await page.goto("#/sommeil");
+
+  const calculator = page.getByTestId("sleep-calculator");
+  const observationPanel = page.getByTestId("sleep-observation-panel");
+  const initialHeights = await Promise.all([
+    calculator.evaluate((element) => element.getBoundingClientRect().height),
+    observationPanel.evaluate(
+      (element) => element.getBoundingClientRect().height,
+    ),
+  ]);
+
+  await page.getByRole("button", { name: "Calculer l'écart" }).click();
+  await expect(page.getByText("1 h 15 de moins")).toBeVisible();
+  await expect(page.getByTestId("sleep-result")).toHaveCSS("opacity", "1");
+
+  const finalHeights = await Promise.all([
+    calculator.evaluate((element) => element.getBoundingClientRect().height),
+    observationPanel.evaluate(
+      (element) => element.getBoundingClientRect().height,
+    ),
+  ]);
+
+  expect(finalHeights[0]).toBeGreaterThan(initialHeights[0]);
+  expect(Math.abs(finalHeights[1] - initialHeights[1])).toBeLessThanOrEqual(1);
+});
+
 test("orientation answers produce a tailored recommendation and can reset", async ({
   page,
 }) => {
