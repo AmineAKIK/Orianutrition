@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { LinkButton } from "../ui/Button";
 import { Container } from "../ui/Container";
-import portrait from "../../assets/practitioner/elise-marceau-hero.png";
+import portrait from "../../assets/practitioner/elise-marceau-hero.webp";
 
 export function Hero() {
   return (

@@ -3,7 +3,7 @@ import { Container } from "../components/ui/Container";
 import { LinkButton } from "../components/ui/Button";
 import { brand } from "../config/site";
 import { approach, signature } from "../data/site";
-import portrait from "../assets/practitioner/elise-marceau-approche.png";
+import portrait from "../assets/practitioner/elise-marceau-approche.webp";
 
 export function AboutPage() {
   return (

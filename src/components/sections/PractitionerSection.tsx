@@ -1,7 +1,7 @@
 import { Container } from "../ui/Container";
 import { LinkButton } from "../ui/Button";
 import { brand } from "../../config/site";
-import portrait from "../../assets/practitioner/elise-marceau-accueil.png";
+import portrait from "../../assets/practitioner/elise-marceau-accueil.webp";
 
 export function PractitionerSection() {
   return (
