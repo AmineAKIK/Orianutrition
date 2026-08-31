@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Download, RefreshCw } from "lucide-react";
-import { publicAppId, publicManifestUrl } from "../../config/release";
+import { publicManifestUrl, publicSiteUrl } from "../../config/release";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -48,7 +48,7 @@ export function PWAInstallButton() {
             if (app.platform !== "webapp") return false;
             const appId = normalizeUrl(app.id);
             const appUrl = normalizeUrl(app.url);
-            return appId === publicAppId || appUrl === publicManifestUrl;
+            return appId === publicSiteUrl || appUrl === publicManifestUrl;
           });
         } catch {
           installed = false;
