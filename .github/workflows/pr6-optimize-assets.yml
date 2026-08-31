@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-python@aeca7f4f5d8e7f71f61d9fc8a9d257b68e303ad5 # v6.0.0
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
       - run: python -m pip install --disable-pip-version-check pillow==11.3.0
