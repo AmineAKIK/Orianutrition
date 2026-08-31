@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "src/main.tsx",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "tests/**/*.test.ts",
+    "e2e/**/*.spec.ts"
+  ],
+  "project": ["src/**/*.{ts,tsx}", "tests/**/*.ts", "e2e/**/*.ts", "*.ts"]
+}
