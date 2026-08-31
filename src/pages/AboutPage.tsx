@@ -3,11 +3,9 @@ import { Container } from '../components/ui/Container'
 import { LinkButton } from '../components/ui/Button'
 import { brand } from '../config/site'
 import { approach, signature } from '../data/site'
-import { usePageMeta } from '../hooks/usePageMeta'
 import portrait from '../assets/practitioner/elise-marceau-approche.png'
 
 export function AboutPage() {
-  usePageMeta('Mon approche')
   return <>
     <section className="section-pad bg-paper"><Container><div className="grid items-center gap-8 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
       <div className="order-2 lg:order-1"><p className="eyebrow mb-3 sm:mb-5">Mon approche</p><h1 className="text-balance text-[2.15rem] leading-[1.1] sm:text-4xl md:text-5xl">{approach.intro}</h1><p className="mt-5 inline-block bg-forest-soft px-4 py-2 text-sm font-medium text-sage-light sm:mt-6">{brand.role}</p></div>
