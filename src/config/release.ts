@@ -1,4 +1,4 @@
-export const publicIndexingEnabled = true;
+export const publicIndexingEnabled = false;
 
 export const publicBasePath = "/orianutrition/";
 export const publicOrigin = "https://amineakik.github.io";
