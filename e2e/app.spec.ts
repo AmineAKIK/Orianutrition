@@ -212,24 +212,43 @@ test("sleep result expands only the calculator column", async ({
   expect(Math.abs(finalHeights[1] - initialHeights[1])).toBeLessThanOrEqual(1);
 });
 
-test("recipe detail uses a coherent editorial list system", async ({
+test("recipe detail keeps preparation below the media and ingredients", async ({
   page,
 }, testInfo) => {
   test.skip(
     testInfo.project.name !== "chromium-desktop",
-    "The recipe editorial contract only needs one rendering engine.",
+    "The recipe composition contract only needs one rendering engine.",
   );
 
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("#/recettes/bowl-quinoa-courge-pois-chiches");
 
+  const image = page.getByTestId("recipe-image");
+  const ingredientsPanel = page.getByTestId("recipe-ingredients-panel");
   const ingredients = page.getByTestId("recipe-ingredients");
+  const preparation = page.getByTestId("recipe-preparation");
   const steps = page.getByTestId("recipe-steps");
 
   await expect(ingredients.locator("li")).toHaveCount(7);
   await expect(ingredients).not.toContainText("—");
   await expect(steps.locator("li")).toHaveCount(5);
-  await expect(steps.getByText("Étape 01")).toBeVisible();
-  await expect(steps.getByText("Étape 05")).toBeVisible();
+  await expect(steps).not.toContainText("Étape 01");
+  await expect(steps).not.toContainText("Étape 05");
+
+  const [imageBox, ingredientsBox, preparationBox] = await Promise.all([
+    image.boundingBox(),
+    ingredientsPanel.boundingBox(),
+    preparation.boundingBox(),
+  ]);
+
+  expect(imageBox).not.toBeNull();
+  expect(ingredientsBox).not.toBeNull();
+  expect(preparationBox).not.toBeNull();
+  if (!imageBox || !ingredientsBox || !preparationBox) return;
+
+  expect(preparationBox.y).toBeGreaterThanOrEqual(
+    Math.max(imageBox.y + imageBox.height, ingredientsBox.y + ingredientsBox.height),
+  );
 });
 
 test("orientation answers produce a tailored recommendation and can reset", async ({
