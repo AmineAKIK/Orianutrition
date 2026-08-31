@@ -43,7 +43,7 @@ format check
 → performance budgets
 ```
 
-Current performance guards fail the build if the initial JavaScript entry exceeds **90 KiB gzip** or if an editorial WebP asset exceeds **225 KiB**.
+Current performance guards fail the build if the initial JavaScript entry exceeds **90 KiB gzip** or if an editorial WebP asset exceeds **225 KiB**. These thresholds are the measured v1 regression budgets after the dedicated optimization pass: they preserve the achieved payload reduction without forcing speculative last-minute changes solely to meet an arbitrary round-number target.
 
 ## Local development
 
@@ -62,7 +62,7 @@ npm run lint
 npm run dead-code
 npm run typecheck
 npm test
-npm run e2e
+npm run test:e2e
 npm run build
 npm run quality:ci
 ```

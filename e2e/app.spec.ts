@@ -6,12 +6,15 @@ const routes = [
   "#/mon-approche",
   "#/accompagnements",
   "#/recettes",
+  "#/recettes/bowl-quinoa-courge-pois-chiches",
   "#/conseils",
+  "#/conseils/organiser-repas-semaine-de-nuit",
   "#/sommeil",
   "#/faq",
   "#/contact",
   "#/mentions-legales",
   "#/espace-client",
+  "#/route-inconnue",
 ];
 
 for (const route of routes) {

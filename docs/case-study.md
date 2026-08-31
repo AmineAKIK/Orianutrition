@@ -46,7 +46,7 @@ Accessibility is treated as a behavior contract, not only a markup checklist. St
 - accessible color contrast for the gold text token;
 - automated axe checks across the route matrix.
 
-Playwright coverage also exercises critical interactions such as the skip link, mobile navigation and orientation quiz.
+Playwright coverage also exercises critical interactions such as the skip link, mobile navigation and orientation quiz. The final release route matrix includes primary routes, recipe/article detail routes and the not-found surface.
 
 ## Product behavior
 
@@ -62,7 +62,7 @@ The release path, public origin and site URL are centralized in one configuratio
 
 The manifest uses stable application identity and dedicated 192/512 icons, including a maskable icon. Installed-app detection normalizes browser-reported IDs against the absolute public site URL. Installation is treated as progressive enhancement because browser support for install prompts varies.
 
-Metadata is owned by a single route-aware component. Canonical, Open Graph and Twitter metadata are kept coherent while indexing remains deliberately disabled for this portfolio release.
+Metadata is owned by a single route-aware component. Canonical, Open Graph and Twitter metadata are kept coherent while indexing remains deliberately disabled for this portfolio release. That conservative policy matches the HashRouter deployment model and avoids presenting fictional public contact channels as a real operating practice through search indexing.
 
 ## Quality gates
 
@@ -89,7 +89,7 @@ Measured against the pre-optimization baseline:
 - editorial image set: **4.83 MB → 1.86 MB** (**−61.6%**);
 - largest editorial asset: **463.09 kB → 223.26 kB**.
 
-Regression budgets are executable: the production build fails if the initial JavaScript entry exceeds **90 KiB gzip** or an editorial WebP exceeds **225 KiB**.
+Regression budgets are executable: the production build fails if the initial JavaScript entry exceeds **90 KiB gzip** or an editorial WebP exceeds **225 KiB**. These are the measured v1 guardrails selected after the optimization pass; they protect the achieved gains while avoiding risky last-minute changes whose only purpose would be to hit an arbitrary round-number target.
 
 ## Privacy and provenance
 
