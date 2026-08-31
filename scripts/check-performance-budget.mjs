@@ -11,7 +11,9 @@ if (!entryFile) {
   throw new Error("Unable to find the production entry JavaScript chunk.");
 }
 
-const entryGzipBytes = gzipSync(readFileSync(join(assetsDir, entryFile))).byteLength;
+const entryGzipBytes = gzipSync(
+  readFileSync(join(assetsDir, entryFile)),
+).byteLength;
 const entryGzipBudgetBytes = 90 * 1024;
 
 if (entryGzipBytes > entryGzipBudgetBytes) {
