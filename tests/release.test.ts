@@ -18,6 +18,6 @@ test("keeps the public release identity internally consistent", () => {
   assert.equal(publicOgImageUrl, `${publicSiteUrl}pwa-512.png`);
 });
 
-test("ships the v1 public release as indexable", () => {
-  assert.equal(publicIndexingEnabled, true);
+test("keeps the v1 portfolio release deliberately non-indexed", () => {
+  assert.equal(publicIndexingEnabled, false);
 });
