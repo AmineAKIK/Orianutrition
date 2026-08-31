@@ -1,4 +1,38 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import { Layout } from '../components/layout/Layout'
-import { HomePage } from '../pages/HomePage'; import { AboutPage } from '../pages/AboutPage'; import { ServicesPage } from '../pages/ServicesPage'; import { RecipesPage } from '../pages/RecipesPage'; import { RecipeDetailPage } from '../pages/RecipeDetailPage'; import { BlogPage } from '../pages/BlogPage'; import { ArticlePage } from '../pages/ArticlePage'; import { SleepPage } from '../pages/SleepPage'; import { ClientSpacePage } from '../pages/ClientSpacePage'; import { FAQPage } from '../pages/FAQPage'; import { ContactPage } from '../pages/ContactPage'; import { LegalPage } from '../pages/LegalPage'; import { NotFoundPage } from '../pages/NotFoundPage'
-export default function App(){return <HashRouter><Routes><Route element={<Layout/>}><Route path="/" element={<HomePage/>}/><Route path="/mon-approche" element={<AboutPage/>}/><Route path="/accompagnements" element={<ServicesPage/>}/><Route path="/recettes" element={<RecipesPage/>}/><Route path="/recettes/:slug" element={<RecipeDetailPage/>}/><Route path="/conseils" element={<BlogPage/>}/><Route path="/conseils/:slug" element={<ArticlePage/>}/><Route path="/sommeil" element={<SleepPage/>}/><Route path="/espace-client" element={<ClientSpacePage/>}/><Route path="/faq" element={<FAQPage/>}/><Route path="/contact" element={<ContactPage/>}/><Route path="/mentions-legales" element={<LegalPage/>}/><Route path="*" element={<NotFoundPage/>}/></Route></Routes></HashRouter>}
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "../components/layout/Layout";
+import { HomePage } from "../pages/HomePage";
+import { AboutPage } from "../pages/AboutPage";
+import { ServicesPage } from "../pages/ServicesPage";
+import { RecipesPage } from "../pages/RecipesPage";
+import { RecipeDetailPage } from "../pages/RecipeDetailPage";
+import { BlogPage } from "../pages/BlogPage";
+import { ArticlePage } from "../pages/ArticlePage";
+import { SleepPage } from "../pages/SleepPage";
+import { ClientSpacePage } from "../pages/ClientSpacePage";
+import { FAQPage } from "../pages/FAQPage";
+import { ContactPage } from "../pages/ContactPage";
+import { LegalPage } from "../pages/LegalPage";
+import { NotFoundPage } from "../pages/NotFoundPage";
+export default function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/mon-approche" element={<AboutPage />} />
+          <Route path="/accompagnements" element={<ServicesPage />} />
+          <Route path="/recettes" element={<RecipesPage />} />
+          <Route path="/recettes/:slug" element={<RecipeDetailPage />} />
+          <Route path="/conseils" element={<BlogPage />} />
+          <Route path="/conseils/:slug" element={<ArticlePage />} />
+          <Route path="/sommeil" element={<SleepPage />} />
+          <Route path="/espace-client" element={<ClientSpacePage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/mentions-legales" element={<LegalPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  );
+}

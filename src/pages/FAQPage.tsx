@@ -1,2 +1,21 @@
-import { StandardPage } from './StandardPage'; import { Accordion } from '../components/ui/Accordion'; import { faqCategories } from '../data/faqs'
-export function FAQPage(){return <StandardPage eyebrow="FAQ" title="Les questions fréquentes." intro="Quelques réponses avant de choisir un accompagnement."><div className="space-y-10">{faqCategories.map(group=><section key={group.category}><h2 className="mb-5 text-2xl">{group.category}</h2><Accordion items={group.items}/></section>)}</div></StandardPage>}
+import { StandardPage } from "./StandardPage";
+import { Accordion } from "../components/ui/Accordion";
+import { faqCategories } from "../data/faqs";
+export function FAQPage() {
+  return (
+    <StandardPage
+      eyebrow="FAQ"
+      title="Les questions fréquentes."
+      intro="Quelques réponses avant de choisir un accompagnement."
+    >
+      <div className="space-y-10">
+        {faqCategories.map((group) => (
+          <section key={group.category}>
+            <h2 className="mb-5 text-2xl">{group.category}</h2>
+            <Accordion items={group.items} />
+          </section>
+        ))}
+      </div>
+    </StandardPage>
+  );
+}
