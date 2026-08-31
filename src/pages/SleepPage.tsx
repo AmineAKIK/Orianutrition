@@ -67,10 +67,11 @@ export function SleepPage() {
       title="Observer sa récupération sur plusieurs jours."
       intro="Le sommeil en horaires atypiques demande souvent une lecture plus souple qu'un simple nombre d'heures par nuit."
     >
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_.9fr] lg:gap-8">
+      <div className="grid items-start gap-6 lg:grid-cols-[1.1fr_.9fr] lg:gap-8">
         <form
           onSubmit={submit}
           className="border border-sage bg-paper p-5 sm:p-7"
+          data-testid="sleep-calculator"
         >
           <h2 className="text-[1.8rem] leading-[1.1] sm:text-3xl">
             Comparer deux durées
@@ -124,30 +125,42 @@ export function SleepPage() {
           >
             Calculer l'écart
           </button>
-          {result && (
-            <div
-              className="mt-6 border-t border-sage pt-5 sm:mt-7 sm:pt-6"
-              role="status"
-              aria-live="polite"
-            >
-              <p className="text-xs uppercase tracking-wider text-forest-soft">
-                Résultat
-              </p>
-              <p className="mt-2 font-serif text-[1.8rem] leading-[1.1] sm:text-3xl">
-                {result.status === "aligned"
-                  ? "Durées alignées"
-                  : result.status === "below"
-                    ? `${formatDuration(result.differenceMinutes)} de moins`
-                    : `${formatDuration(result.differenceMinutes)} de plus`}
-              </p>
-              <p className="mt-3 text-pretty text-sm leading-relaxed text-muted">
-                Cet écart est un repère d'observation. Il ne mesure ni la
-                qualité du sommeil ni un besoin médical individuel.
-              </p>
+          <div
+            className={`grid transition-[grid-template-rows,opacity,margin-top] duration-300 ease-out motion-reduce:transition-none ${
+              result
+                ? "mt-6 grid-rows-[1fr] opacity-100 sm:mt-7"
+                : "mt-0 grid-rows-[0fr] opacity-0"
+            }`}
+            role="status"
+            aria-live="polite"
+            data-testid="sleep-result"
+          >
+            <div className="overflow-hidden">
+              {result && (
+                <div className="border-t border-sage pt-5 sm:pt-6">
+                  <p className="text-xs uppercase tracking-wider text-forest-soft">
+                    Résultat
+                  </p>
+                  <p className="mt-2 font-serif text-[1.8rem] leading-[1.1] sm:text-3xl">
+                    {result.status === "aligned"
+                      ? "Durées alignées"
+                      : result.status === "below"
+                        ? `${formatDuration(result.differenceMinutes)} de moins`
+                        : `${formatDuration(result.differenceMinutes)} de plus`}
+                  </p>
+                  <p className="mt-3 text-pretty text-sm leading-relaxed text-muted">
+                    Cet écart est un repère d'observation. Il ne mesure ni la
+                    qualité du sommeil ni un besoin médical individuel.
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </form>
-        <div className="bg-sage-light p-5 sm:p-7">
+        <div
+          className="bg-sage-light p-5 sm:p-7"
+          data-testid="sleep-observation-panel"
+        >
           <h2 className="text-[1.8rem] leading-[1.1] sm:text-3xl">
             À observer aussi
           </h2>
