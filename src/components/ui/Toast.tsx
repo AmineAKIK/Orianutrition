@@ -7,5 +7,5 @@ export function Toast({ message }: { message: string }) {
     >
       {message}
     </div>
-  )
+  );
 }
