@@ -5,10 +5,10 @@ export function Logo() {
   return (
     <Link
       to="/"
-      className="inline-flex items-center gap-2.5 sm:gap-3"
+      className="inline-flex shrink-0 items-center gap-2.5 sm:gap-3"
       aria-label={`${brand.name} — accueil`}
     >
-      <span className="grid size-8 place-items-center border border-forest font-serif text-lg text-forest sm:size-9 sm:text-xl">
+      <span className="grid size-8 shrink-0 place-items-center border border-forest font-serif text-lg text-forest sm:size-9 sm:text-xl">
         O
       </span>
       <span>
