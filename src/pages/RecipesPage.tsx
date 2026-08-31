@@ -20,7 +20,7 @@ export function RecipesPage() {
   return (
     <section className="section-pad bg-paper">
       <Container>
-        <SectionHeading eyebrow="Recettes" title="Des repas simples, pensés pour ton emploi du temps" body="Des idées faciles à préparer avant un poste, pendant une pause ou au retour — à adapter à ton rythme." />
+        <SectionHeading level={1} eyebrow="Recettes" title="Des repas simples, pensés pour ton emploi du temps" body="Des idées faciles à préparer avant un poste, pendant une pause ou au retour — à adapter à ton rythme." />
         <div className="my-8 grid grid-cols-2 gap-2 sm:my-10 sm:flex sm:flex-wrap" role="group" aria-label="Filtrer les recettes par catégorie">
           {categories.map((category) => <button key={category} type="button" onClick={() => setActive(category)} aria-pressed={active === category} className={`min-h-11 w-full border px-3 py-2 text-sm font-medium sm:w-auto sm:px-4 ${active === category ? 'border-forest bg-forest text-paper' : 'border-sage text-forest-soft'}`}>{category}</button>)}
         </div>
