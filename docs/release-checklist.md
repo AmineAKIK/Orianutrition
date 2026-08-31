@@ -31,12 +31,12 @@ A release candidate must pass the existing `Quality gates` workflow, including:
 
 The Playwright release matrix runs the complete application suite in:
 
-| Project | Engine / profile | Coverage intent |
-| --- | --- | --- |
-| `chromium-desktop` | Desktop Chrome | Primary desktop Chromium behavior |
-| `firefox-desktop` | Desktop Firefox | Gecko compatibility |
-| `webkit-desktop` | Desktop Safari | WebKit/Safari compatibility |
-| `chromium-mobile` | Pixel 5 profile | Touch/mobile Chromium behavior |
+| Project            | Engine / profile | Coverage intent                   |
+| ------------------ | ---------------- | --------------------------------- |
+| `chromium-desktop` | Desktop Chrome   | Primary desktop Chromium behavior |
+| `firefox-desktop`  | Desktop Firefox  | Gecko compatibility               |
+| `webkit-desktop`   | Desktop Safari   | WebKit/Safari compatibility       |
+| `chromium-mobile`  | Pixel 5 profile  | Touch/mobile Chromium behavior    |
 
 The route matrix checks the main landmark, one `h1`, console/page errors and WCAG 2 A/AA axe rules, blocking critical and serious violations. Interaction tests also cover skip-link routing/focus, mobile navigation focus restoration and the orientation quiz flow.
 
