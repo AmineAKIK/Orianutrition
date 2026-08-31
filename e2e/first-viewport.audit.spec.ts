@@ -7,7 +7,7 @@ const routes = [
   { name: "recipes", path: "#/recettes" },
   { name: "recipe-detail", path: "#/recettes/bowl-quinoa-courge-pois-chiches" },
   { name: "blog", path: "#/conseils" },
-  { name: "article-detail", path: "#/conseils/organiser-repas-semaine-nuit" },
+  { name: "article-detail", path: "#/conseils/organiser-repas-semaine-de-nuit" },
   { name: "sleep", path: "#/sommeil" },
   { name: "contact", path: "#/contact" },
   { name: "client", path: "#/espace-client" },
@@ -39,7 +39,8 @@ test("audit first viewport composition", async ({ page }, testInfo) => {
 
     for (const route of routes) {
       await page.goto(route.path);
-      await page.waitForLoadState("networkidle");
+      await page.locator("#main-content h1").waitFor({ state: "visible" });
+      await page.waitForTimeout(50);
 
       const metrics = await page.evaluate(() => {
         const viewportHeight = window.innerHeight;
