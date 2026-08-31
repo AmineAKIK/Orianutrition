@@ -13,7 +13,7 @@ export const clientDashboard: ClientDashboardData = {
   program: "Suivi rythme & énergie",
   nextAppointment: {
     label: "Point de suivi",
-    date: "Mardi 8 septembre",
+    date: "Prochain mardi",
     time: "18 h 30",
     mode: "Visio",
   },
