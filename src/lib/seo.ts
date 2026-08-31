@@ -1,7 +1,7 @@
 export interface RouteMetadata {
   title: string
   description: string
-  robots: 'index,follow' | 'noindex,nofollow'
+  robots: 'index,follow' | 'noindex,follow' | 'noindex,nofollow'
 }
 
 export interface DetailMetadata {
@@ -31,9 +31,11 @@ export function resolveRouteMetadata(
   indexingEnabled: boolean,
 ): RouteMetadata {
   const metadata = pageMetadata[pathname] ?? detail
-  const isPrivateOrMissing = pathname === '/espace-client' || !metadata
+  const isPrivate = pathname === '/espace-client'
+  const isMissing = !metadata
+
   return {
     ...(metadata ?? { title: 'Page introuvable — Oria Nutrition', description: defaultDescription }),
-    robots: indexingEnabled && !isPrivateOrMissing ? 'index,follow' : 'noindex,nofollow',
+    robots: isPrivate || isMissing ? 'noindex,nofollow' : indexingEnabled ? 'index,follow' : 'noindex,follow',
   }
 }

@@ -6,10 +6,8 @@ import { LinkButton, Button } from '../components/ui/Button'
 import { ServiceCard } from '../components/cards/ServiceCard'
 import { OrientationQuiz } from '../components/sections/OrientationQuiz'
 import { discoveryCall, servicePacks, serviceSteps } from '../data/services'
-import { usePageMeta } from '../hooks/usePageMeta'
 
 export function ServicesPage(){
-  usePageMeta('Accompagnements')
   const[quizOpen,setQuizOpen]=useState(false)
   return <>
     <section className="section-pad bg-paper"><Container><SectionHeading level={1} eyebrow="Accompagnements" title="Un accompagnement pensé pour ton emploi du temps, pas l'inverse" body="Plusieurs formats, du premier échange à un suivi plus régulier, pour avancer à ton rythme."/></Container></section>

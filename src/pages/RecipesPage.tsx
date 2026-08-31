@@ -6,10 +6,8 @@ import { SectionHeading } from '../components/ui/SectionHeading'
 import { RecipeCard } from '../components/cards/RecipeCard'
 import { recipes } from '../data/recipes'
 import { recipeImages, recipeImagePositions } from '../data/recipeImages'
-import { usePageMeta } from '../hooks/usePageMeta'
 
 export function RecipesPage() {
-  usePageMeta('Recettes')
   const [active, setActive] = useState('Toutes')
   const categories = useMemo(() => ['Toutes', ...Array.from(new Set(recipes.flatMap((r) => r.categories)))], [])
   const featured = recipes[0]

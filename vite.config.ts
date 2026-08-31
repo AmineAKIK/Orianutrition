@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import { publicBasePath, publicSiteUrl } from './src/config/release'
+import { publicAppId, publicBasePath, publicManifestUrl, publicSiteUrl } from './src/config/release'
 
 const publicReleaseHtml = {
   name: 'public-release-html',
@@ -20,7 +20,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        id: publicBasePath,
+        id: publicAppId,
         name: 'Oria Nutrition',
         short_name: 'Oria',
         description: 'Nutrition, sommeil et rythmes atypiques',
@@ -34,17 +34,15 @@ export default defineConfig({
         related_applications: [
           {
             platform: 'webapp',
-            url: `${publicBasePath}manifest.webmanifest`,
-            id: publicBasePath,
+            url: publicManifestUrl,
+            id: publicAppId,
           },
         ],
         icons: [
-          {
-            src: `${publicBasePath}favicon.svg`,
-            sizes: 'any',
-            type: 'image/svg+xml',
-            purpose: 'any maskable',
-          },
+          { src: `${publicBasePath}pwa-192.png`, sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: `${publicBasePath}pwa-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: `${publicBasePath}pwa-maskable-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: `${publicBasePath}favicon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
         ],
       },
     }),
