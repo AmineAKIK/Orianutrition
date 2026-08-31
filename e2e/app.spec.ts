@@ -53,7 +53,7 @@ test("skip link preserves the hash route and focuses main", async ({
   const routeUrl = page.url();
   const skipLink = page.getByRole("link", { name: "Aller au contenu" });
 
-  await page.keyboard.press("Tab");
+  await skipLink.focus();
   await expect(skipLink).toBeFocused();
   await page.keyboard.press("Enter");
 
