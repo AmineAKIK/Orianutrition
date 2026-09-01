@@ -50,7 +50,7 @@ export function Hero() {
                 decoding="async"
               />
             </div>
-            <p className="mt-4 text-center font-serif text-sm italic leading-relaxed text-forest-soft md:text-left lg:text-right">
+            <p className="mt-4 text-center font-serif text-sm italic leading-relaxed text-forest-soft">
               « Ton rythme mérite des repères qui peuvent bouger avec lui. »
             </p>
           </div>

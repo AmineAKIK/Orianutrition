@@ -76,13 +76,13 @@ export function AboutPage() {
           </div>
         </Container>
       </section>
-      <section className="section-pad-sm bg-forest-dark text-paper">
+      <section className="section-pad-sm bg-cream">
         <Container>
           <div className="max-w-2xl">
-            <h2 className="text-balance text-[2rem] leading-[1.1] text-paper md:text-4xl">
+            <h2 className="text-balance text-[2rem] leading-[1.1] md:text-4xl">
               {signature.title}
             </h2>
-            <p className="mt-5 text-pretty leading-relaxed text-sage sm:mt-6 sm:text-lg">
+            <p className="mt-5 text-pretty leading-relaxed text-muted sm:mt-6 sm:text-lg">
               {signature.body}
             </p>
             <div className="mt-7 sm:mt-9">
