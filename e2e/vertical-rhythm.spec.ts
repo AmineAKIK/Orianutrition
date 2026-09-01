@@ -22,9 +22,12 @@ test("top-level pages share a controlled desktop start rhythm", async ({
     await page.goto(route);
     await expect(page.locator("h1")).toHaveCount(1);
 
-    const paddingTop = await page.locator("#main-content > section").first().evaluate((section) =>
-      Number.parseFloat(getComputedStyle(section).paddingTop),
-    );
+    const paddingTop = await page
+      .locator("#main-content > section")
+      .first()
+      .evaluate((section) =>
+        Number.parseFloat(getComputedStyle(section).paddingTop),
+      );
 
     expect(
       paddingTop,
@@ -89,9 +92,12 @@ test("dark closing callout and footer remain visually distinct and compact", asy
   const closingPaddingBottom = await closingSection.evaluate((section) =>
     Number.parseFloat(getComputedStyle(section).paddingBottom),
   );
-  const footerPaddingTop = await footer.locator(":scope > div").first().evaluate((container) =>
-    Number.parseFloat(getComputedStyle(container).paddingTop),
-  );
+  const footerPaddingTop = await footer
+    .locator(":scope > div")
+    .first()
+    .evaluate((container) =>
+      Number.parseFloat(getComputedStyle(container).paddingTop),
+    );
   const footerBorderTop = await footer.evaluate((element) =>
     Number.parseFloat(getComputedStyle(element).borderTopWidth),
   );
