@@ -116,6 +116,9 @@
   .section-pad-sm {
     padding-block: 40px;
   }
+  .page-intro-pad {
+    padding-block: 40px;
+  }
   .eyebrow {
     font-family: var(--font-sans);
     font-size: 0.75rem;
@@ -138,6 +141,9 @@
     .section-pad-sm {
       padding-block: 48px;
     }
+    .page-intro-pad {
+      padding-block: 48px;
+    }
   }
   @media (min-width: 768px) {
     .container-editorial {
@@ -153,6 +159,23 @@
     }
     .section-pad-sm {
       padding-block: 72px;
+    }
+    .page-intro-pad {
+      padding-block: 80px;
+    }
+  }
+  @media (min-width: 1024px) and (max-height: 800px) {
+    .page-intro-pad {
+      padding-block: 56px;
+    }
+    .home-hero-shell {
+      padding-block: 32px;
+    }
+    .home-hero-grid {
+      align-items: start;
+    }
+    .home-hero-media {
+      max-width: min(100%, calc((100dvh - 144px) * 0.8));
     }
   }
 }

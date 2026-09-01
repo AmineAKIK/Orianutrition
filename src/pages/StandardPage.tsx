@@ -15,7 +15,7 @@ export function StandardPage({
   return (
     <>
       <section className="border-b border-sage bg-cream">
-        <Container className="py-10 sm:py-12 lg:py-20">
+        <Container className="page-intro-pad">
           <p className="eyebrow">{eyebrow}</p>
           <h1 className="mt-4 max-w-4xl text-balance text-[2.25rem] leading-[1.08] sm:mt-5 sm:text-5xl lg:text-6xl">
             {title}

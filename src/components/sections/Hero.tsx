@@ -6,8 +6,8 @@ import portrait from "../../assets/practitioner/elise-marceau-hero.webp";
 export function Hero() {
   return (
     <section className="bg-paper">
-      <Container className="pb-12 pt-8 sm:pb-14 sm:pt-10 lg:pb-20 lg:pt-14">
-        <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] md:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-14">
+      <Container className="home-hero-shell pb-12 pt-6 sm:pb-14 sm:pt-10 lg:pb-20 lg:pt-14">
+        <div className="home-hero-grid grid items-center gap-8 md:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] md:gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-14">
           <div>
             <p className="eyebrow mb-4 sm:mb-5">
               Nutrition · Sommeil · Horaires atypiques
@@ -16,7 +16,7 @@ export function Hero() {
               Manger, dormir et récupérer selon{" "}
               <span className="italic">ton</span> rythme — même quand il change.
             </h1>
-            <p className="mt-5 max-w-lg text-pretty text-base leading-relaxed text-muted sm:mt-6 sm:text-lg md:text-base lg:text-lg">
+            <p className="mt-4 max-w-lg text-pretty text-base leading-relaxed text-muted sm:mt-6 sm:text-lg md:text-base lg:text-lg">
               Oria accompagne les personnes aux horaires de nuit, alternants ou
               variables vers des repères alimentaires et de récupération adaptés
               au quotidien réel.
@@ -39,7 +39,7 @@ export function Hero() {
             </div>
           </div>
           <div className="md:self-center">
-            <div className="aspect-[4/5] max-w-xs mx-auto overflow-hidden border border-sage bg-cream sm:max-w-sm md:max-w-none">
+            <div className="home-hero-media mx-auto aspect-[4/5] max-w-xs overflow-hidden border border-sage bg-cream sm:max-w-sm md:max-w-none">
               <img
                 src={portrait}
                 alt="Portrait d’Élise Marceau"
