@@ -29,7 +29,19 @@ const responsiveRoutes = [
   "#/espace-client",
 ];
 
-const responsiveWidths = [320, 375, 430, 768, 1024, 1279, 1280, 1440, 1920];
+const responsiveViewports = [
+  { width: 320, height: 568 },
+  { width: 375, height: 667 },
+  { width: 390, height: 844 },
+  { width: 430, height: 932 },
+  { width: 768, height: 1024 },
+  { width: 1024, height: 768 },
+  { width: 1279, height: 800 },
+  { width: 1280, height: 720 },
+  { width: 1366, height: 768 },
+  { width: 1440, height: 900 },
+  { width: 1920, height: 1080 },
+];
 
 for (const route of routes) {
   test(`${route} loads with core accessibility invariants`, async ({
@@ -96,20 +108,21 @@ test("mobile navigation restores focus on Escape", async ({ page }) => {
   await expect(menuButton).toBeFocused();
 });
 
-test("responsive surfaces never overflow the viewport", async ({
+test("responsive surfaces never overflow the viewport matrix", async ({
   page,
 }, testInfo) => {
   test.skip(
     testInfo.project.name !== "chromium-desktop",
-    "The layout-width matrix only needs one rendering engine; cross-engine behavior is covered by the accessibility route suite.",
+    "The viewport matrix only needs one rendering engine; cross-engine behavior is covered by the accessibility route suite.",
   );
 
-  for (const width of responsiveWidths) {
-    await page.setViewportSize({ width, height: 900 });
+  for (const viewport of responsiveViewports) {
+    await page.setViewportSize(viewport);
 
     for (const route of responsiveRoutes) {
       await page.goto(route);
       await expect(page.locator("#main-content")).toBeVisible();
+      await expect(page.locator("h1")).toHaveCount(1);
 
       const dimensions = await page.evaluate(() => ({
         viewportWidth: window.innerWidth,
@@ -118,8 +131,108 @@ test("responsive surfaces never overflow the viewport", async ({
 
       expect(
         dimensions.documentWidth,
-        `${route} overflows horizontally at ${width}px`,
+        `${route} overflows horizontally at ${viewport.width}×${viewport.height}`,
       ).toBeLessThanOrEqual(dimensions.viewportWidth);
+    }
+  }
+});
+
+test("home keeps its primary action in compact and short first viewports", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "chromium-desktop",
+    "First viewport composition only needs one rendering engine.",
+  );
+
+  for (const viewport of [
+    { width: 320, height: 568 },
+    { width: 1280, height: 720 },
+    { width: 1366, height: 768 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("#/");
+
+    const action = page.getByRole("link", {
+      name: "Découvrir les accompagnements",
+    });
+    await expect(action).toBeVisible();
+    const box = await action.boundingBox();
+
+    expect(box).not.toBeNull();
+    if (!box) continue;
+    expect(
+      box.y + box.height,
+      `Home primary action falls below ${viewport.width}×${viewport.height}`,
+    ).toBeLessThanOrEqual(viewport.height);
+  }
+});
+
+test("approach message precedes the portrait on smaller viewports", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "chromium-desktop",
+    "First viewport composition only needs one rendering engine.",
+  );
+
+  for (const viewport of [
+    { width: 320, height: 568 },
+    { width: 375, height: 667 },
+    { width: 768, height: 1024 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto("#/mon-approche");
+
+    const heading = page.locator("h1");
+    const portrait = page.getByAltText(/Portrait de/);
+    await expect(heading).toBeVisible();
+    await expect(portrait).toBeVisible();
+    const [headingBox, portraitBox] = await Promise.all([
+      heading.boundingBox(),
+      portrait.boundingBox(),
+    ]);
+
+    expect(headingBox).not.toBeNull();
+    expect(portraitBox).not.toBeNull();
+    if (!headingBox || !portraitBox) continue;
+
+    expect(headingBox.y).toBeLessThan(portraitBox.y);
+    expect(
+      headingBox.y + headingBox.height,
+      `Approach heading falls below ${viewport.width}×${viewport.height}`,
+    ).toBeLessThanOrEqual(viewport.height);
+  }
+});
+
+test("standard page intros leave useful content in short landscape viewports", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name !== "chromium-desktop",
+    "First viewport composition only needs one rendering engine.",
+  );
+
+  for (const viewport of [
+    { width: 1024, height: 768 },
+    { width: 1280, height: 720 },
+    { width: 1366, height: 768 },
+  ]) {
+    await page.setViewportSize(viewport);
+
+    for (const route of ["#/sommeil", "#/contact"]) {
+      await page.goto(route);
+      await expect(page.locator("h1")).toHaveCount(1);
+
+      const contentSection = page.locator("#main-content > section").nth(1);
+      const box = await contentSection.boundingBox();
+      expect(box).not.toBeNull();
+      if (!box) continue;
+
+      expect(
+        box.y,
+        `${route} content starts too late at ${viewport.width}×${viewport.height}`,
+      ).toBeLessThanOrEqual(viewport.height * 0.65);
     }
   }
 });
