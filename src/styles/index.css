@@ -116,8 +116,14 @@
   .section-pad-sm {
     padding-block: 40px;
   }
+  .page-start-pad {
+    padding-block: 40px 48px;
+  }
   .page-intro-pad {
-    padding-block: 40px;
+    padding-block: 40px 36px;
+  }
+  .page-body-pad {
+    padding-block: 48px;
   }
   .eyebrow {
     font-family: var(--font-sans);
@@ -141,8 +147,14 @@
     .section-pad-sm {
       padding-block: 48px;
     }
+    .page-start-pad {
+      padding-block: 48px 56px;
+    }
     .page-intro-pad {
-      padding-block: 48px;
+      padding-block: 48px 40px;
+    }
+    .page-body-pad {
+      padding-block: 56px;
     }
   }
   @media (min-width: 768px) {
@@ -160,13 +172,25 @@
     .section-pad-sm {
       padding-block: 72px;
     }
+    .page-start-pad {
+      padding-block: 72px;
+    }
     .page-intro-pad {
-      padding-block: 80px;
+      padding-block: 72px 48px;
+    }
+    .page-body-pad {
+      padding-block: 64px 96px;
     }
   }
   @media (min-width: 1024px) and (max-height: 800px) {
-    .page-intro-pad {
+    .page-start-pad {
       padding-block: 56px;
+    }
+    .page-intro-pad {
+      padding-block: 56px 40px;
+    }
+    .page-body-pad {
+      padding-block: 48px 72px;
     }
     .home-hero-shell {
       padding-block: 32px;
