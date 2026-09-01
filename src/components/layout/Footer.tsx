@@ -4,7 +4,7 @@ import { footerNav } from "../../data/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-sage/20 bg-forest-dark text-paper">
+    <footer className="bg-forest-dark text-paper">
       <div className="container-editorial grid gap-10 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:py-16">
         <div>
           <p className="font-serif text-3xl">{brand.name}</p>
