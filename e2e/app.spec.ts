@@ -222,15 +222,21 @@ test("standard page intros leave useful content in short landscape viewports", a
 
     for (const route of ["#/sommeil", "#/contact"]) {
       await page.goto(route);
-      await expect(page.locator("h1")).toHaveCount(1);
+      const heading = page.locator("h1");
+      await expect(heading).toBeVisible();
 
-      const contentSection = page.locator("#main-content > section").nth(1);
-      const box = await contentSection.boundingBox();
-      expect(box).not.toBeNull();
-      if (!box) continue;
+      const contentTop = await heading.evaluate((element) => {
+        const introSection = element.closest("section");
+        const contentSection = introSection?.nextElementSibling;
+        return contentSection instanceof HTMLElement
+          ? contentSection.getBoundingClientRect().top
+          : null;
+      });
 
+      expect(contentTop).not.toBeNull();
+      if (contentTop === null) continue;
       expect(
-        box.y,
+        contentTop,
         `${route} content starts too late at ${viewport.width}×${viewport.height}`,
       ).toBeLessThanOrEqual(viewport.height * 0.65);
     }
