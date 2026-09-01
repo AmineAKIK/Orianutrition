@@ -11,7 +11,7 @@ export function AboutPage() {
       <section className="section-pad bg-paper">
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
-            <div className="order-2 lg:order-1">
+            <div>
               <p className="eyebrow mb-3 sm:mb-5">Mon approche</p>
               <h1 className="text-balance text-[2.15rem] leading-[1.1] sm:text-4xl md:text-5xl">
                 {approach.intro}
@@ -20,7 +20,7 @@ export function AboutPage() {
                 {brand.role}
               </p>
             </div>
-            <div className="order-1 lg:order-2">
+            <div>
               <div className="mx-auto aspect-[4/3] max-w-md overflow-hidden border border-sage bg-sage-light sm:aspect-[4/5] sm:max-w-sm">
                 <img
                   src={portrait}
