@@ -73,7 +73,7 @@ test("standard page transitions do not stack oversized vertical padding", async 
   }
 });
 
-test("dark closing callout and footer remain visually distinct and compact", async ({
+test("closing callout and footer use distinct surfaces with compact spacing", async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -98,11 +98,16 @@ test("dark closing callout and footer remain visually distinct and compact", asy
     .evaluate((container) =>
       Number.parseFloat(getComputedStyle(container).paddingTop),
     );
-  const footerBorderTop = await footer.evaluate((element) =>
-    Number.parseFloat(getComputedStyle(element).borderTopWidth),
-  );
+  const [closingBackground, footerBackground, footerBorderTop] = await Promise.all([
+    closingSection.evaluate((element) => getComputedStyle(element).backgroundColor),
+    footer.evaluate((element) => getComputedStyle(element).backgroundColor),
+    footer.evaluate((element) =>
+      Number.parseFloat(getComputedStyle(element).borderTopWidth),
+    ),
+  ]);
 
   expect(closingPaddingBottom).toBeLessThanOrEqual(72);
   expect(footerPaddingTop).toBeLessThanOrEqual(64);
-  expect(footerBorderTop).toBeGreaterThan(0);
+  expect(closingBackground).not.toBe(footerBackground);
+  expect(footerBorderTop).toBe(0);
 });
