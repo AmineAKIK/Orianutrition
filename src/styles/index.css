@@ -116,7 +116,8 @@
   .section-pad-sm {
     padding-block: 40px;
   }
-  .page-start-pad {
+  .page-start-pad,
+  #main-content > .section-pad:first-child {
     padding-block: 40px 48px;
   }
   .page-intro-pad {
@@ -147,7 +148,8 @@
     .section-pad-sm {
       padding-block: 48px;
     }
-    .page-start-pad {
+    .page-start-pad,
+    #main-content > .section-pad:first-child {
       padding-block: 48px 56px;
     }
     .page-intro-pad {
@@ -172,7 +174,8 @@
     .section-pad-sm {
       padding-block: 72px;
     }
-    .page-start-pad {
+    .page-start-pad,
+    #main-content > .section-pad:first-child {
       padding-block: 72px;
     }
     .page-intro-pad {
@@ -183,7 +186,8 @@
     }
   }
   @media (min-width: 1024px) and (max-height: 800px) {
-    .page-start-pad {
+    .page-start-pad,
+    #main-content > .section-pad:first-child {
       padding-block: 56px;
     }
     .page-intro-pad {
