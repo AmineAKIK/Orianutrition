@@ -25,7 +25,7 @@ export function StandardPage({
           </p>
         </Container>
       </section>
-      <section className="section-pad">
+      <section className="page-body-pad">
         <Container>{children}</Container>
       </section>
     </>
