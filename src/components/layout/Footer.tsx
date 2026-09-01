@@ -4,8 +4,8 @@ import { footerNav } from "../../data/site";
 
 export function Footer() {
   return (
-    <footer className="bg-forest-dark text-paper">
-      <div className="container-editorial grid gap-10 py-14 md:grid-cols-[1.2fr_1fr_1fr] lg:py-20">
+    <footer className="border-t border-sage/20 bg-forest-dark text-paper">
+      <div className="container-editorial grid gap-10 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:py-16">
         <div>
           <p className="font-serif text-3xl">{brand.name}</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-sage">
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-sage/20">
-        <p className="container-editorial py-5 text-xs leading-relaxed text-sage/80">
+        <p className="container-editorial py-4 text-xs leading-relaxed text-sage/80">
           Projet de démonstration — marque, identité, coordonnées, prix et
           données client fictifs. Aucune donnée réelle n’est traitée.
         </p>
