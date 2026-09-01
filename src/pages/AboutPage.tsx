@@ -8,7 +8,7 @@ import portrait from "../assets/practitioner/elise-marceau-approche.webp";
 export function AboutPage() {
   return (
     <>
-      <section className="section-pad bg-paper">
+      <section className="page-start-pad bg-paper">
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
             <div>
@@ -76,7 +76,7 @@ export function AboutPage() {
           </div>
         </Container>
       </section>
-      <section className="section-pad bg-forest-dark text-paper">
+      <section className="section-pad-sm bg-forest-dark text-paper">
         <Container>
           <div className="max-w-2xl">
             <h2 className="text-balance text-[2rem] leading-[1.1] text-paper md:text-4xl">
