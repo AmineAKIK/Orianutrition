@@ -98,13 +98,16 @@ test("closing callout and footer use distinct surfaces with compact spacing", as
     .evaluate((container) =>
       Number.parseFloat(getComputedStyle(container).paddingTop),
     );
-  const [closingBackground, footerBackground, footerBorderTop] = await Promise.all([
-    closingSection.evaluate((element) => getComputedStyle(element).backgroundColor),
-    footer.evaluate((element) => getComputedStyle(element).backgroundColor),
-    footer.evaluate((element) =>
-      Number.parseFloat(getComputedStyle(element).borderTopWidth),
-    ),
-  ]);
+  const [closingBackground, footerBackground, footerBorderTop] =
+    await Promise.all([
+      closingSection.evaluate(
+        (element) => getComputedStyle(element).backgroundColor,
+      ),
+      footer.evaluate((element) => getComputedStyle(element).backgroundColor),
+      footer.evaluate((element) =>
+        Number.parseFloat(getComputedStyle(element).borderTopWidth),
+      ),
+    ]);
 
   expect(closingPaddingBottom).toBeLessThanOrEqual(72);
   expect(footerPaddingTop).toBeLessThanOrEqual(64);
