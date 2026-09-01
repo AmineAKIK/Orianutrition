@@ -175,10 +175,7 @@
       align-items: start;
     }
     .home-hero-media {
-      max-height: calc(100dvh - 144px);
-      width: auto;
-      max-width: 100%;
-      margin-inline: auto;
+      max-width: min(100%, calc((100dvh - 144px) * 0.8));
     }
   }
 }
